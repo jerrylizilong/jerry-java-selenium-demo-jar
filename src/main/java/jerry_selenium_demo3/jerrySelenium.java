@@ -31,7 +31,7 @@ class JerrySelenium {
         // 初始化driver： 根据传入的浏览器类型初始化对应的浏览器驱动
     static WebDriver initDriver(String browserType) throws MalformedURLException {
         WebDriver driver;
-        Boolean usingLocal = false;
+        Boolean usingLocal = true;
 
         // 调用本地driver
         if(true==usingLocal) driver = new ChromeDriver();

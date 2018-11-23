@@ -34,3 +34,16 @@ Chrome,前往|http://www.baidu.com,验证标题|百度一下,填写|id@@kw@@百�
 - 截图： 对当前页面进行截图并保存。
 ```
 
+### 使用方法：
+1. ide 中执行：
+执行 jerry_selenium_demo3.JerryTestCase 文件，并指定参数为用例集文件的地址，如 D:\demo\jerry-java-selenium-demo\cases.txt。
+2. jar 包执行：
+- 下载 jar 包:jerry-java-demo-1.0-SNAPSHOT.jar
+- 命令行执行：  java -jar /yourpath/jerry-java-demo-1.0-SNAPSHOT.jar /yourpath/case.txt
+
+注意：
+- 需要本地安装好jdk 和 chromedriver 驱动并配置好环境变量。
+- 执行完成后，会在jar 包所在目录生成对应的 result.txt 结果文件。
+
+
+## 打包命令： mvn package
