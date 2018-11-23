@@ -1,4 +1,4 @@
-package jerry_selenium_demo3;
+package jerry_selenium;
 
 import java.util.Arrays;
 import java.util.List;

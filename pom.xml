@@ -46,7 +46,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>jerry_selenium_demo3.jerryTestCaseTest</mainClass>
+              <mainClass>jerry_selenium.jerrySeleniumRun</mainClass>
             </manifest>
           </archive>
         </configuration>

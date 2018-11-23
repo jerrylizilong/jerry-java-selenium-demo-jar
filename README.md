@@ -4,16 +4,7 @@
 
 IDEA+maven+testng+selenium
 
-## demo 1： hello world!
-基础例子： 使用selenium 代码实现页面操作
-### 场景：
-在百度首页点击新闻链接进入百度新闻页面。
-
-## demo 2： 使用 testng 组织不同用例
-### 场景：
-分别从百度首页点击不同的链接进入不同的页面
-
-## demo 3： 使用关键字驱动用例
+## demo： 使用关键字驱动用例
 ### 场景：
 从 case.txt 文件中读取用例列表：
 ```
@@ -36,7 +27,7 @@ Chrome,前往|http://www.baidu.com,验证标题|百度一下,填写|id@@kw@@百�
 
 ### 使用方法：
 1. ide 中执行：
-执行 jerry_selenium_demo3.JerryTestCase 文件，并指定参数为用例集文件的地址，如 D:\demo\jerry-java-selenium-demo\cases.txt。
+执行 src/main/java/jerry_selenium/JerrySeleniumRun 文件，并指定参数为用例集文件的地址，如 D:\demo\jerry-java-selenium-demo\cases.txt。
 2. jar 包执行：
 - 下载 jar 包:jerry-java-demo-1.0-SNAPSHOT.jar
 - 命令行执行：  java -jar /yourpath/jerry-java-demo-1.0-SNAPSHOT.jar /yourpath/case.txt

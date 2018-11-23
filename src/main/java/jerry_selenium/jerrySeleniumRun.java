@@ -1,4 +1,4 @@
-package jerry_selenium_demo3;
+package jerry_selenium;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-import static jerry_selenium_demo3.JerryTestCase.*;
+import static jerry_selenium.JerryTestCase.*;
 
-public class jerryTestCaseTest {
+public class jerrySeleniumRun {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
