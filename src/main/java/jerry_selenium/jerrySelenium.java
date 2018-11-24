@@ -6,11 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import java.awt.peer.SystemTrayPeer;
 import java.io.File;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -74,10 +75,51 @@ class JerrySelenium {
         return element;
     }
 
+
+    // 根据指定方法定位元素, 返回元素组
+    static List<WebElement> findElementsBy(WebDriver driver, String method, String value){
+        List<WebElement> elementList = null;
+        if ("id".equals(method)){
+            elementList = driver.findElements(By.id(value));
+        }else if("name".equals(method)){
+            elementList = driver.findElements(By.name(value));
+        }else if("class".equals(method)){
+            elementList = driver.findElements(By.className(value));
+        }else if ("xpath".equals(method)){
+            elementList = driver.findElements(By.xpath(value));
+        }else if ("css".equals(method)){
+            elementList = driver.findElements(By.cssSelector(value));
+        }else if ("text".equals(method)){
+            elementList = driver.findElements(By.partialLinkText(value));
+        }
+        return elementList;
+    }
+
     // 查找元素
     static WebElement findElemnt(WebDriver driver, List<String> step){
         return findElementBy(driver,step.get(1),step.get(2));
+    }
 
+    // 切换到指定 iframe
+    static void switchIframe(WebDriver driver,WebElement element){
+        driver.switchTo().frame(element);
+    }
+
+    // 切换窗口
+    static void switchWindow(WebDriver driver){
+        for(String name: driver.getWindowHandles()){
+            if(!driver.getWindowHandle().equals(name)){
+                driver.switchTo().window(name);
+                break;
+            }
+        }
+    }
+
+
+
+    // 切换到默认 iframe
+    static void switchDefaultIframe(WebDriver driver){
+        driver.switchTo().defaultContent();
     }
 
     // 点击给定的元素
@@ -92,10 +134,11 @@ class JerrySelenium {
 
         // 保存截图
     static void saveScreenshot(WebDriver driver, String name) throws IOException {
+        File direction = new File("");
         File pic = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         SimpleDateFormat currentTime = new SimpleDateFormat("yyyyMMdd-HHmmss");
         String time = currentTime.format(new Date());
-        FileUtils.copyFile(pic, new File("test" + File.separator+name +"-"+ time + ".jpg"));
+        FileUtils.copyFile(pic, new File(direction.getAbsolutePath()+File.separator+"test" + File.separator+name +"-"+ time + ".jpg"));
     }
 
     // 验证网页标题是否包含指定字符串
@@ -116,7 +159,7 @@ class JerrySelenium {
        }
 
        // 验证指定元素中是否包含指定字符串
-    static void assertElementContainsText(WebElement element, String text) throws InterruptedException {
+    static void assertElementContainsText(WebElement element, String text,boolean isContains) throws InterruptedException {
         Thread.sleep(2000);
         text = text.replaceAll("\r","");
         String elementText;
@@ -125,7 +168,39 @@ class JerrySelenium {
         }else {
             elementText = element.getAttribute("value");
         }
-        Assert.assertTrue(elementText.contains(text));
+        if(isContains){
+            Assert.assertTrue(elementText.contains(text));
+        }else {
+            Assert.assertTrue(!(elementText.contains(text)));
+        }
+
        }
+
+    static void select(WebDriver driver,String method, String value, String optionMethod, String optionValue){
+        Select selectOption=new Select(findElementBy(driver,method,value));
+        if(optionMethod.equals("index")){
+            selectOption.selectByIndex(Integer.parseInt(optionValue));
+        }else if(optionMethod.equals("value")){
+            selectOption.selectByValue(optionValue);
+        }else if (optionMethod.equals("text")){
+            selectOption.selectByVisibleText(optionValue);
+        }else if (optionMethod.equals("text_part")){
+            for (WebElement option: selectOption.getOptions()){
+                if(option.getText().contains(optionValue)) option.click();
+            }
+        }else {
+            throw new org.openqa.selenium.NoSuchElementException("option method not defined!");
+        }
+    }
+
+    static void clickText(WebDriver driver,String text){
+        driver.findElement(By.partialLinkText(text));
+    }
+
+    static void wait(String waitTime) throws InterruptedException {
+        Thread.sleep(Integer.parseInt(waitTime)*1000);
+    }
+
+
 
 }

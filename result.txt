@@ -4,3 +4,7 @@ Chrome,前往|http://www.baidu.com,点击|name@@tj_trhao123,验证标题|hao123 
 Chrome,前往|http://www.baidu.com,点击|name@@tj_trmap,验证标题|百度地图   result is :true
 Chrome,前往|http://www.baidu.com,点击|name@@tj_trtieba,验证标题|百度贴吧   result is :true
 Chrome,前往|http://www.baidu.com,验证标题|百度一下,填写|id@@kw@@百度,点击|id@@su,验证文字|xpath@@//*[@id='1']/h3/a[1]@@百度   result is :true
+﻿Chrome,前往|http://www.baidu.com,填写|id@@kw1@@selenium,验证文字|id@@su@@百度一下,点击|id@@su,验证|Web Browser Automation,截图   result is :true
+﻿Chrome,前往|http://www.baidu.com,填写|id@@kw1@@selenium,验证文字|id@@su@@百度一下,点击|id@@su,验证|Web Browser Automation,截图   result is :true
+﻿Chrome,前往|http://www.baidu.com,填写|id@@kw1@@selenium,验证文字|id@@su@@百度一下,点击|id@@su,验证|Web Browser Automation,截图   result is :true
+﻿Chrome,前往|http://www.baidu.com,填写|id@@kw1@@selenium,验证文字|id@@su@@百度一下,点击|id@@su,验证|Web Browser Automation,截图   result is :false

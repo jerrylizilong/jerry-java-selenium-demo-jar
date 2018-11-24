@@ -1,0 +1,1 @@
+﻿Chrome,前往|http://www.baidu.com,填写|id@@kw1@@selenium,验证文字|id@@su@@百度一下,点击|id@@su,验证|Web Browser Automation,截图

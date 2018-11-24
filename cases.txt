@@ -1,4 +1,5 @@
 Chrome,前往|http://www.baidu.com,填写|id@@kw@@selenium,验证文字|id@@su@@百度一下,点击|id@@su,验证|Web Browser Automation,截图
+Chrome,前往|http://www.baidu.com,填写|id@@kw@@selenium,验证文字非|id@@su@@百度一下111,点击|id@@su,验证|Web Browser Automation,截图
 Chrome,前往|http://www.baidu.com,点击|name@@tj_trnews,验证标题|百度新闻
 Chrome,前往|http://www.baidu.com,点击|name@@tj_trhao123,验证标题|hao123
 Chrome,前往|http://www.baidu.com,点击|name@@tj_trmap,验证标题|百度地图
